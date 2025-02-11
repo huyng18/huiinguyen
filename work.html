@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông Tin Công Việc</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e3f2fd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .work-container {
+            background-color: white;
+            width: 90%;
+            max-width: 1200px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .box {
+            background-color: #bbdefb;
+            padding: 10px;
+            border: 2px solid black;
+            border-radius: 10px;
+            width: 30%;
+            min-height: 180px;
+            transition: transform 0.3s ease-in-out;
+            text-align: left;
+            position: relative;
+        }
+        .box p {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 5px 0;
+        }
+        .box:hover, .big-box:hover {
+            transform: scale(1.05);
+        }
+        .big-box {
+            background-color: #90caf9;
+            border: 2px solid black;
+            border-radius: 10px;
+            width: 100%;
+            height: 100px;
+            padding: 20px;
+            transition: transform 0.3s ease-in-out;
+            text-align: center;
+        }
+        .link-box {
+            background-color: #ffffff;
+            border: 2px solid black;
+            width: 40px;
+            height: 30px;
+            display: inline-block;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .link-box:hover {
+            transform: scale(1.1);
+        }
+        p {
+            transition: transform 0.2s;
+        }
+        p:hover {
+            transform: scale(1.2);
+        }
+        .hack { animation: slideLeft 1s ease-in-out; }
+        .tool { animation: slideRight 1s ease-in-out; }
+        .tips { animation: slideUp 1s ease-in-out; }
+        .update { animation: slideDown 1s ease-in-out; }
+
+        @keyframes slideLeft {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+        @keyframes slideRight {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+        .title-bar {
+            font-weight: bold;
+            text-align: center;
+            padding-bottom: 5px;
+            border-bottom: 2px solid black;
+            margin-bottom: 5px;
+        }
+        .copy-message {
+            color: green;
+            font-size: 12px;
+            display: none;
+        }
+    </style>
+</head>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector("a[href='#work']").addEventListener("click", function (event) {
+            event.preventDefault();
+            let workContainer = document.getElementById("work");
+            if (workContainer.style.display === "none") {
+                workContainer.style.display = "block";
+            } else {
+                workContainer.style.display = "none";
+            }
+        });
+    });
+</script>
+
+<body>
+    <div class="work-container">
+        <div class="section">
+            <div class="box hack">
+                <div class="title-bar">HACK</div>
+                <p>Locket Gold <a href="https://idapple.csadata4g.me/" class="link-box" target="_blank"></a></p>
+                <p>Module Locket Gold 1 <a href="https://raw.githubusercontent.com/hvbstar/coderhvb/main/Locket_Gold_HVB.sgmodule" class="link-box" target="_blank"></a></p>
+                <p>Module Locket Gold 2 <a href="https://raw.githubusercontent.com/vuong2023/shad/main/modules/Locket_ohb.sgmodule" class="link-box" target="_blank"></a></p>
+                <p>Module Spotify <span class="link-box" onclick="copyToClipboard()"></span></p>
+                <p class="copy-message" id="copyMessage">Đã copy</p>
+            </div>
+            <div class="box tool">
+                <div class="title-bar">TOOL</div>
+                <p>TDS <a href="https://drive.google.com/drive/folders/1kNq_Z-BRDmr4nnYtt_8jOWzcjOb9uC90?usp=drive_link" class="link-box" target="_blank"></a></p>
+                <p>Office <a href="https://drive.google.com/drive/folders/1kNq_Z-BRDmr4nnYtt_8jOWzcjOb9uC90?usp=drive_link" class="link-box" target="_blank"></a></p>
+                <p>Tool C++ <a href="https://drive.google.com/drive/folders/1kNq_Z-BRDmr4nnYtt_8jOWzcjOb9uC90?usp=drive_link" class="link-box" target="_blank"></a></p>
+                <p>Explorer Trong Suốt <a href="https://drive.google.com/drive/folders/1kNq_Z-BRDmr4nnYtt_8jOWzcjOb9uC90?usp=drive_link" class="link-box" target="_blank"></a></p>
+            </div>
+            <div class="box update">
+                <div class="title-bar">ĐANG CẬP NHẬT</div>
+                <p>Đang cập nhật</p>
+            </div>
+        </div>
+        <div class="big-box tips">
+            <p>CÁC MẸO VÀ THỦ THUẬT HỖ TRỢ MỌI NGƯỜI VƯỢT QUA CÚ SỐC ĐI ĐÂU CŨNG PREMIUM :))</p>
+        </div>
+    </div>
+    <script>
+        function copyToClipboard() {
+            navigator.clipboard.writeText("spotify-json = type=http-request,...");
+            document.getElementById("copyMessage").style.display = "block";
+            setTimeout(() => { document.getElementById("copyMessage").style.display = "none"; }, 2000);
+        }
+    </script>
+</body>
+</html>

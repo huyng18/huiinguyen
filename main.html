@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Cá Nhân</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        @keyframes planeFly {
+            from { transform: translateX(100vw); }
+            to { transform: translateX(-200vw); } 
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes floatAnimation {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0); }
+        }
+        
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: 'Roboto', sans-serif;
+            background-image: url('1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+      .plane {
+            position: absolute;
+            top: 20%;
+            right: -150px;
+            width: 100px;
+            animation: planeFly 3s linear forwards;
+        }
+
+      .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 800px;
+            width: 100%;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 3s forwards;
+        }
+
+      .profile-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+            flex: 1;
+            min-width: 200px;
+            max-width: 400px;
+            animation: floatAnimation 3s infinite ease-in-out;
+        }
+
+      .profile-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+      .profile-card h2 {
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.6);
+            font-style: italic;
+            cursor: pointer;
+        }
+
+      .profile-card h2:hover {
+            text-decoration: underline;
+        }
+
+      .social-links a {
+            font-size: 24px;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+      .social-links a[href*="facebook"] { color: #1877F2; }
+      .social-links a[href*="tiktok"] { color: #69C9D0; }
+      .social-links a[href*="instagram"] { color: #E4405F; }
+
+      .verified {
+            color: #1DA1F2;
+        }
+
+        /* Taskbar styles */
+      .taskbar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 60px; 
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 20px;
+        }
+
+      .taskbar-icon {
+            font-size: 30px;
+            margin-bottom: 20px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        /* Work window styles */
+        #work-window {
+            position: fixed;
+            left: -100%; /* Ban đầu ẩn bên trái */
+            top: 0;
+            height: 100%;
+            width: 100%; /* Điều chỉnh chiều rộng nếu cần */
+            background-color: white;
+            transition: transform 0.5s ease-in-out; /* Hiệu ứng trượt */
+            z-index: 1000; /* Đảm bảo cửa sổ ở trên cùng */
+            overflow-y: auto; 
+        }
+        #work-window.show {
+            transform: translateX(100%); /* Hiển thị cửa sổ */
+        }
+        #work-window iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        #close-work-window { /* Style cho icon đóng */
+            position: absolute; 
+            top: 10px; 
+            right: 10px; 
+            font-size: 20px; 
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="plane.png" alt="Máy bay" class="plane">
+
+    <div class="taskbar">
+        <i class="fas fa-shopping-bag taskbar-icon" id="bag-icon"></i> 
+    </div>
+
+    <div id="work-window"> 
+        <iframe src="work.html"></iframe>
+        <i class="fas fa-times" id="close-work-window"></i>
+    </div>
+
+    <div class="container">
+        <div class="profile-card">
+            <img src="huii.jpg" alt="Profile Picture">
+            <h1><i>Nguyễn Đức Huy</i> <i class="fas fa-check-circle verified"></i></h1>
+            <h2 onclick="navigator.clipboard.writeText('nguyenhuy1832006@gmail.com')">Email: nguyenhuy1832006@gmail.com</h2>
+            <p>Chia sẻ kiến thức, tư duy sáng tạo!</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/nhui18/" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.tiktok.com/@nhui.3" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/n_huii03/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const bagIcon = document.getElementById('bag-icon');
+        const workWindow = document.getElementById('work-window');
+        const closeWorkWindow = document.getElementById('close-work-window');
+
+        bagIcon.addEventListener('click', () => {
+            workWindow.classList.toggle('show'); // Toggle để đóng/mở
+        });
+
+        closeWorkWindow.addEventListener('click', () => {
+            workWindow.classList.remove('show');
+        });
+
+        // Đóng cửa sổ khi nhấp ra ngoài (tùy chọn)
+        workWindow.addEventListener('click', (event) => {
+            if (event.target === workWindow) {
+                workWindow.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
