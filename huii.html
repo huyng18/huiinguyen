@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Cá Nhân</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        @keyframes planeFly {
+            from { transform: translateX(100vw); }
+            to { transform: translateX(-100vw); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes floatAnimation {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0); }
+        }
+        @keyframes scaleUp {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: 'Roboto', sans-serif;
+            background-image: url('1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .plane {
+            position: absolute;
+            top: 20%;
+            right: -150px;
+            width: 100px;
+            animation: planeFly 3s linear forwards;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 800px;
+            width: 100%;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 3s forwards;
+        }
+        .profile-card, .news-panel {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+            flex: 1;
+            min-width: 280px;
+        }
+        .profile-card {
+            animation: floatAnimation 3s infinite ease-in-out;
+        }
+        .profile-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .profile-card h2 {
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.6);
+            font-style: italic;
+        }
+        .social-links a {
+            font-size: 24px;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .social-links a[href*="facebook"] { color: #1877F2; }
+        .social-links a[href*="tiktok"] { color: #69C9D0; }
+        .social-links a[href*="instagram"] { color: #E4405F; }
+        .news-panel h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .news-panel .link-box {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            word-wrap: break-word;
+            font-weight: bold;
+            transition: transform 0.3s ease-in-out;
+        }
+        .news-panel .link-box:hover {
+            transform: scale(1.1);
+        }
+        .news-panel .link-box:nth-child(1) { background-color: #ffcccb; }
+        .news-panel .link-box:nth-child(2) { background-color: #b0e57c; }
+        .news-panel .link-box:nth-child(3) { background-color: #add8e6; }
+        .news-panel .link-box:nth-child(4) { background-color: #ffeb3b; }
+        .verified {
+            color: #1DA1F2;
+        }
+    </style>
+</head>
+<body>
+    <img src="plane.png" alt="Máy bay" class="plane">
+    <div class="container">
+        <div class="profile-card">
+            <img src="huii.jpg" alt="Profile Picture">
+            <h1>Nguyễn Đức Huy <i class="fas fa-check-circle verified"></i></h1>
+            <h2>Email: nguyenhuy1832006@gmail.com</h2>
+            <p>Chia sẻ kiến thức, tư duy sáng tạo!</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/nhui18/" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.tiktok.com/@nhui.3" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/n_huii03/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="news-panel">
+            <h2>Chia sẻ mẹo hay</h2>
+            <div class="link-box">
+                <p>Locket Gold:</p>
+                <a href="https://idapple.csadata4g.me/" target="_blank">https://idapple.csadata4g.me/</a>
+            </div>
+            <div class="link-box">
+                <p>Module Locket Gold:</p>
+                <a href="https://raw.githubusercontent.com/hvbstar/coderhvb/main/Locket_Gold_HVB.sgmodule" target="_blank">Link 1</a>
+                <a href="https://raw.githubusercontent.com/vuong2023/shad/main/modules/Locket_ohb.sgmodule" target="_blank">Link 2</a>
+            </div>
+            <div class="link-box">
+                <p>Module Spotify:</p>
+                <a href="#" onclick="navigator.clipboard.writeText('spotify-json')">Copy Spotify JSON</a>
+                <a href="#" onclick="navigator.clipboard.writeText('spotify-proto')">Copy Spotify Proto</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
